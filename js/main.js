@@ -214,59 +214,62 @@ function calcular() {
 
         } else {
             console.log("****Quantitativa Continua");
-            calculaIntervaloQuantitativaContinua(dados)
-            /*             let arrayIndices = calculaIntervaloQuantitativaContinua(dados);
-                        let novoVetor = [];            
-            
-                        for (let i = 0; i < vet.length; i++) {
-                            let item = vet[i];
-                            let novoIndice = arrayIndices.find(x => item.indice >= x.valorInicial
-                                && item.indice < x.valorFinal);
-            
-                            if (!novoIndice.fi) {
-                                novoIndice.fi = 0;
-                            }
-            
-                            novoIndice.fi += Number(item.fi);
-                        }
-            
-                        vet = arrayIndices;
-            
-                        calcularFr(vet);                // Calcula a Fr%                                                         
-                        calcularFac(vet);               // Calcula o Fac                                                         
-                        calcularFacPorc(vet);           // Calcula o Fac                                                         
-            
-                        //Daqui pra baixo tem que revisar
-                        moda = 0;       // Calcular Moda                                                         
-                        let maiorFi = 0;
-                        let fiTotal = 0;
-                        let totalMedia = 0;
-            
-                        //Calculo da moda da continua
-                        for (let i = 0; i < vet.length; i++) {
-                            if (vet[i].fi > maiorFi) {
-                                maiorFi = vet[i].fi;
-                                moda = (vet[i].valorFinal + vet[i].valorInicial) / 2;
-                            }
-                            vet[i].mediaItem = (vet[i].valorFinal + vet[i].valorInicial) / 2;
-                            totalMedia += vet[i].mediaItem * vet[i].fi;
-                            fiTotal += vet[i].fi;
-                        }
-            
-                        media = (totalMedia / fiTotal).toFixed(2);      // Calcular Media                                                        
-            
-                        mediana = calcularMediana(vet); // Calcular Mediana                                                      
-            
-                        // Mostrar resultados
-                        console.log(vet);
-                        console.log("Variavel pesquisada " + variavel);
-                        console.log("Média: " + media);
-                        console.log("Moda: " + moda);
-                        console.log("Posição da mediana esta na posição " + mediana);
-                        console.log("Mediana: " + elementoMediana(mediana, dados));
-            
-                    } */
+            calculaQuantitativaContinua(dados)
+
+            // calculaQuantitativaContinua(dados);
+            //     let arrayIndices = calculaIntervaloQuantitativaContinua(dados);
+            //     let novoVetor = [];
+
+            //     for (let i = 0; i < vet.length; i++) {
+            //         let item = vet[i];
+            //         let novoIndice = arrayIndices.find(x => item.indice >= x.valorInicial
+            //             && item.indice < x.valorFinal);
+
+            //         if (!novoIndice.fi) {
+            //             novoIndice.fi = 0;
+            //         }
+
+            //         novoIndice.fi += Number(item.fi);
+            //     }
+
+            //     vet = arrayIndices;
+
+            //     calcularFr(vet);                // Calcula a Fr%                                                         
+            //     calcularFac(vet);               // Calcula o Fac                                                         
+            //     calcularFacPorc(vet);           // Calcula o Fac                                                         
+
+            //     //Daqui pra baixo tem que revisar
+            //     moda = 0;       // Calcular Moda                                                         
+            //     let maiorFi = 0;
+            //     let fiTotal = 0;
+            //     let totalMedia = 0;
+
+            //     //Calculo da moda da continua
+            //     for (let i = 0; i < vet.length; i++) {
+            //         if (vet[i].fi > maiorFi) {
+            //             maiorFi = vet[i].fi;
+            //             moda = (vet[i].valorFinal + vet[i].valorInicial) / 2;
+            //         }
+            //         vet[i].mediaItem = (vet[i].valorFinal + vet[i].valorInicial) / 2;
+            //         totalMedia += vet[i].mediaItem * vet[i].fi;
+            //         fiTotal += vet[i].fi;
+            //     }
+
+            //     media = (totalMedia / fiTotal).toFixed(2);      // Calcular Media                                                        
+
+            //     mediana = calcularMediana(vet); // Calcular Mediana                                                      
+
+            //     // Mostrar resultados
+            //     console.log(vet);
+            //     console.log("Variavel pesquisada " + variavel);
+            //     console.log("Média: " + media);
+            //     console.log("Moda: " + moda);
+            //     console.log("Posição da mediana esta na posição " + mediana);
+            //     console.log("Mediana: " + elementoMediana(mediana, dados));
+
+            // }
         }
+
     }
     else {                             // Qualitativa == Palavras 
         console.log('Qualitativa Ordinal');

@@ -49,10 +49,7 @@ function atualizarValorRange(e) {
     let intervaloClasse, intervalo;
 
 
-    do {
-        console.log('teste
-        ');
-        
+    do {        
         amplitude += 1
         if(amplitude / k == 0 ){
             intervalo = amplitude / k;
