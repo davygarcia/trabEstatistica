@@ -23,26 +23,29 @@
         <div class="col-3">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
-                   aria-controls="v-pills-home" aria-selected="true">Estatística Descritiva</a>
+                    aria-controls="v-pills-home" aria-selected="true">Estatística Descritiva</a>
                 <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
-                   aria-controls="v-pills-profile" aria-selected="false">Probabilidade</a>
+                    aria-controls="v-pills-profile" aria-selected="false">Probabilidade</a>
                 <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
-                   aria-controls="v-pills-messages" aria-selected="false">Correlação e Regressão</a>
+                    aria-controls="v-pills-messages" aria-selected="false">Correlação e Regressão</a>
             </div>
         </div>
         <div class="col-9">
             <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                    aria-labelledby="v-pills-home-tab">
                     <h3 class="display-5 text-muted">
                         Estatística Descritiva
                     </h3>
                     <form actcion="">
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                            <input type="radio" id="customRadioInline1" name="customRadioInline1"
+                                class="custom-control-input">
                             <label class="custom-control-label" for="customRadioInline1">Amostra</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline1"
+                                class="custom-control-input">
                             <label class="custom-control-label" for="customRadioInline2">População</label>
                         </div>
 
@@ -62,7 +65,7 @@
                     <div class="form-group">
                         <label for="selectMatrizSeparativa">Escolha uma medida Separatriz:</label>
                         <select class="form-control" id="selectMatrizSeparativa"
-                                onchange="atualizarValorMaximoRange(this.value)">
+                            onchange="atualizarValorMaximoRange(this.value)">
                             <option selected>Selecione a medida</option>
                             <option value="4">Quartil</option>
                             <option value="5">Quintil</option>
@@ -71,12 +74,13 @@
                             <option value="1000">Personalizado</option>
                         </select>
 
-                        <input oninput="atualizarRange(this.value)"
-                               type="range" class="custom-range" min="1" max="4" step="1" id="range">
+                        <input oninput="atualizarRange(this.value)" type="range" class="custom-range" min="1" max="4"
+                            step="1" id="range">
 
                         <div class="form-group">
                             <label for="valorRange">Valor</label>
-                            <input class="form-control" type="text" id="valorRange" oninput="atualizarValorRange(this.value)">
+                            <input class="form-control" type="text" id="valorRange"
+                                oninput="atualizarValorRange(this.value)">
                         </div>
                     </div>
 
@@ -92,7 +96,7 @@
                                 </tr>
                             </thead>
                             <tbody id="tabelaResultado">
-                                
+
                             </tbody>
                         </table>
                     </div>
@@ -102,7 +106,50 @@
                 </div>
 
                 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                    <img src="img/em_construcao.jpg" width="400">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">Uniforme</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#perfil" role="tab"
+                                aria-controls="profile" aria-selected="false">Binomial</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contato" role="tab"
+                                aria-controls="contact" aria-selected="false">Normal</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-5">
+                                    <select class="form-control" id="id_select">
+                                        <option value="maiorQue">Maior que</option>
+                                        <option value="entre">Entre</option>
+                                        <option value="menorQue">Menor que</option>
+                                        <option value="variancia">Variância e Desvio Padrão</option>
+                                        <option value="vrMedio">Valor médio (média)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <input class="form-control" type="number" id="quantidade_probabilidade" placeholder="Quantidade">
+                            </div>
+                            <div class="col-5">
+                                <input class="form-control" type="number" id="ponto_minimo" placeholder="Ponto Minimo" de>
+                            </div>
+                            <div class="col-5">
+                                <input class="form-control" type="number" id="ponto_maximo" placeholder="Ponto Máximo">
+                            </div>
+
+                            <button class="btn btn-primary" id="calcular" >Calcular</button>
+
+                        </div>
+
+                        <div class="tab-pane fade" id="perfil" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                        <div class="tab-pane fade" id="contato" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                     <img src="img/em_construcao.jpg" width="400">
@@ -122,6 +169,7 @@
     <script src="js/main.js" type="text/javascript"></script>
     <script src="js/funcoes_auxiliares.js" type="text/javascript"></script>
     <script src="js/qContinua.js"></script>
+    <script src="js/probabilidade/acoesProbabilidade.js"></script>
 </body>
 
 </html>
