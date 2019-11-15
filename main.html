@@ -64,7 +64,7 @@
 
                     <div class="form-group">
                         <label for="selectMatrizSeparativa">Escolha uma medida Separatriz:</label>
-                        <select class="form-control" id="selectMatrizSeparativa"
+                        <select class="form-control col-5" id="selectMatrizSeparativa"
                             onchange="atualizarValorMaximoRange(this.value)">
                             <option selected>Selecione a medida</option>
                             <option value="4">Quartil</option>
@@ -77,7 +77,7 @@
                         <input oninput="atualizarRange(this.value)" type="range" class="custom-range" min="1" max="4"
                             step="1" id="range">
 
-                        <div class="form-group">
+                        <div class="form-group col-5">
                             <label for="valorRange">Valor</label>
                             <input class="form-control" type="text" id="valorRange"
                                 oninput="atualizarValorRange(this.value)">
@@ -108,23 +108,23 @@
                 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#uniforme" role="tab"
                                 aria-controls="home" aria-selected="true">Uniforme</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#perfil" role="tab"
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#binomial" role="tab"
                                 aria-controls="profile" aria-selected="false">Binomial</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contato" role="tab"
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#normal" role="tab"
                                 aria-controls="contact" aria-selected="false">Normal</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="tab-pane fade show active" id="uniforme" role="tabpanel" aria-labelledby="home-tab">
                             <div class="row">
-                                <div class="col-5">
-                                    <select class="form-control" id="id_select">
+                                <div class="col-5 mb-3">
+                                    <select class="form-control" id="id_selectUniforme">
                                         <option value="maiorQue">Maior que</option>
                                         <option value="entre">Entre</option>
                                         <option value="menorQue">Menor que</option>
@@ -133,22 +133,60 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <input class="form-control" type="number" id="quantidade_probabilidade" placeholder="Quantidade">
+                            <div class="row">
+                                <div class="col-6 mb-2">
+                                    <input class="form-control" type="number" id="quantidade_probabilidade"
+                                        placeholder="Quantidade">
+                                </div>
                             </div>
-                            <div class="col-5">
-                                <input class="form-control" type="number" id="ponto_minimo" placeholder="Ponto Minimo" de>
-                            </div>
-                            <div class="col-5">
-                                <input class="form-control" type="number" id="ponto_maximo" placeholder="Ponto Máximo">
-                            </div>
+                            <div class="row">
+                                <div class="col-6 mb-2">
+                                    <input class="form-control" type="number" id="ponto_minimo"
+                                        placeholder="Ponto Minimo" de>
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <input class="form-control" type="number" id="ponto_maximo"
+                                        placeholder="Ponto Máximo">
+                                </div>
 
-                            <button class="btn btn-primary" id="calcular" >Calcular</button>
+                                <div class="col-6 mb-2">
+                                    <input class="form-control" type="number" id="entreX" placeholder="de (x)">
+                                </div>
+
+                                <div class="col-6 mb-2">
+                                    <input class="form-control" type="number" id="entreY" placeholder="de (y)">
+                                </div>
+
+                                <button class="btn btn-primary" id="calcular">Calcular</button>
+                            </div>
 
                         </div>
 
-                        <div class="tab-pane fade" id="perfil" role="tabpanel" aria-labelledby="profile-tab">...</div>
-                        <div class="tab-pane fade" id="contato" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                        <div class="tab-pane fade" id="binomial" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row">
+                                <div class="col-5 mb-3">
+                                    <select class="form-control" id="id_selectBinomial">
+                                        <option value="probabilidadeBinomial">Probabilidade</option>
+                                        <option value="mediaBinomial">Média</option>
+                                        <option value="devioBinomial">Desvio Padrão</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5 mb-2"><input class="form-control" type="number" id="amostrBinomial"
+                                        placeholder="Amostra(N)"></div>
+                                <div class="col-5 mb-2 "><input class="form-control" type="number" id="sucessoBinomial"
+                                        placeholder="Sucesso(P)"></div>
+                                <div class="col-5 mb-2"><input class="form-control" type="number" id="fracassoBinomial"
+                                        placeholder="Fracasso(Q)"></div>
+                                <div class="col-5 mb-2"><input class="form-control" type="number" id="eventoBinomial"
+                                        placeholder="Evento(K) | Digite os dados separados por ;"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="tab-pane fade" id="normal" role="tabpanel" aria-labelledby="contact-tab">...</div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">

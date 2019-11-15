@@ -210,33 +210,12 @@ function calcular() {
             console.log("Moda: " + moda);
             console.log("Mediana: " + elementoMediana(mediana, dados));
 
+            gerarTabela(vet,variavel);
 
 
         } else {
             console.log("****Quantitativa Continua");
             calculaQuantitativaContinua(dados)
-
-            // calculaQuantitativaContinua(dados);
-            //     let arrayIndices = calculaIntervaloQuantitativaContinua(dados);
-            //     let novoVetor = [];
-
-            //     for (let i = 0; i < vet.length; i++) {
-            //         let item = vet[i];
-            //         let novoIndice = arrayIndices.find(x => item.indice >= x.valorInicial
-            //             && item.indice < x.valorFinal);
-
-            //         if (!novoIndice.fi) {
-            //             novoIndice.fi = 0;
-            //         }
-
-            //         novoIndice.fi += Number(item.fi);
-            //     }
-
-            //     vet = arrayIndices;
-
-            //     calcularFr(vet);                // Calcula a Fr%                                                         
-            //     calcularFac(vet);               // Calcula o Fac                                                         
-            //     calcularFacPorc(vet);           // Calcula o Fac                                                         
 
             //     //Daqui pra baixo tem que revisar
             //     moda = 0;       // Calcular Moda                                                         
@@ -291,24 +270,23 @@ function calcular() {
         console.log("Média: Qualitativa não tem media");
         console.log("Posição da mediana esta na posição " + mediana);
         console.log("Mediana: " + elementoMediana(mediana, dados));
-
+        gerarTabela(vet,variavel);
     }
-    let nomeColuna = variavel || "#";
+
+}
+
+function gerarTabela(linhas,nomeVariavel) {
+    let nomeColuna = nomeVariavel || "#";
     $("#nomeVariavelTh").html(nomeColuna);
 
-    let body = "";
+    let tableContent = "";
 
-
-    for (let i = 0; i < vet.length; i++) {
-        let item = vet[i];
+    for (let i = 0; i < linhas.length; i++) {
+        let item = linhas[i];
 
         let indice = item.indice;
 
-        if (item.valorInicial !== undefined) {
-            indice = item.valorInicial + " ----- " + item.valorFinal;
-        }
-
-        body += "<tr>"
+        tableContent += "<tr>"
             + "<td>" + indice + "</td>"
             + "<td>" + item.fi + "</td>"
             + "<td>" + item.fr + "%</td>"
@@ -317,7 +295,7 @@ function calcular() {
             + "</tr>";
     }
 
-    $("#tabelaResultado").html(body);
+    $("#tabelaResultado").html(tableContent);
 
 
 }

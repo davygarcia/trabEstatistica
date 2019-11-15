@@ -35,42 +35,48 @@ function calculaQuantitativaContinua(dados) {
     intervaloCalculo = amplitude / k
 
     let arrayIndices = [];
-
+    let facContinua = 0;
+    let facContinuaPorcent = 0;
     for (let i = 0; i < Math.ceil(amplitude / intervaloCalculo); i++) {
+        let valorInicial;
+        let valorFinal;
+        let fi;
+        let fr;
         if (i == 0) {
-            arrayIndices[i] = {
-                valorInicial: menorValor,
-                valorFinal: menorValor + intervaloCalculo
-            };
+            valorInicial = menorValor;
+            valorFinal = menorValor + intervaloCalculo;
         } else {
-            arrayIndices[i] = {
-                valorInicial: arrayIndices[i - 1].valorFinal,
-                valorFinal: arrayIndices[i - 1].valorFinal + intervaloCalculo
-            };
+            valorInicial = arrayIndices[i - 1].valorFinal;
+            valorFinal = arrayIndices[i - 1].valorFinal + intervaloCalculo;   
         }
+
+        fi = dados.filter((value) => {
+            return value >= valorInicial && value < valorFinal;
+        }).length;
+
+        facContinua += fi;
+        fr = calcularFrContinua(fi,dados.length);
+        facContinuaPorcent += fr;
+        arrayIndices[i] = {
+            valorInicial: valorInicial,
+            valorFinal: valorFinal,
+            indice: valorInicial +" |--- " + valorFinal,
+            fi:fi,
+            fr:fr,
+            fac:facContinua,
+            facPorc: facContinuaPorcent
+
+        };
     }
 
+
+    gerarTabela(arrayIndices, pegarVariavel());
     console.log(arrayIndices);
     
 
     return arrayIndices
 }
 
-// function calcularFicont(dados, vr_intervalo) {
-//     console.log(dados);
-//     console.log(vr_intervalo);
-//     let novoVetor = []; 
-
-//     for (let i = 0; i < vet.length; i++) {
-//         let item = vet[i];
-//         let novoIndice = arrayIndices.find(x => item.indice >= x.valorInicial
-//             && item.indice < x.valorFinal);
-
-//         if (!novoIndice.fi) {
-//             novoIndice.fi = 0;
-//         }
-
-//         novoIndice.fi += Number(item.fi);
-//     }
-
-// }
+function calcularFrContinua(valor,quantidadeTotal) {
+    return Math.round(valor/quantidadeTotal*100);    
+}
