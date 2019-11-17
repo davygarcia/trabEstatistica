@@ -5,7 +5,7 @@ $("#entreX").hide();
 $("#entreY").hide();
 
 $('#id_selectUniforme').change(function () {
-    var id_select = ($(this).val());
+    let id_select = ($(this).val());
     if (id_select == 'maiorQue') {
         $("#quantidade_probabilidade").show();
         $("#ponto_minimo").show();
@@ -51,3 +51,62 @@ $('#sucessoBinomial').hide();
 $('#fracassoBinomial').hide();
 $('#eventoBinomial').hide();
 
+$('#id_selectBinomial').change(function () {
+    let id_select = ($(this).val());
+    if (id_select == 'probabilidadeBinomial') {
+        $('#amostrBinomial').show();
+        $('#sucessoBinomial').show();
+        $('#fracassoBinomial').show();
+        $('#eventoBinomial').show();
+    }
+    else if (id_select == 'mediaBinomial') {
+        $('#amostrBinomial').show();
+        $('#sucessoBinomial').show();
+        $('#fracassoBinomial').hide();
+        $('#eventoBinomial').hide();
+
+    } else if (id_select == 'devioBinomial') {
+        $('#amostrBinomial').show();
+        $('#sucessoBinomial').show();
+        $('#fracassoBinomial').show();
+        $('#eventoBinomial').hide();
+    }
+
+
+
+})
+
+$('#quantidade_normal').hide();
+$('#media_normal').hide();
+$('#desvioPadrao_normal').hide();
+$('#deX_normal').hide();
+$('#deY_normal').hide();
+
+$('#id_selectNomal').change(function () {
+    let id_select = ($(this).val());
+
+    if (id_select == 'maiorQue_normal') {
+        $('#quantidade_normal').show();
+        $('#media_normal').show();
+        $('#desvioPadrao_normal').show();
+        $('#deX_normal').hide();
+        $('#deY_normal').hide();
+    }
+    else if (id_select == 'entre_normal') {
+        $('#quantidade_normal').hide();
+        $('#media_normal').show();
+        $('#desvioPadrao_normal').show();
+        $('#deX_normal').show();
+        $('#deY_normal').show();
+
+    }
+    else if (id_select == 'menorQue_normal') {
+        $('#quantidade_normal').show();
+        $('#media_normal').show();
+        $('#desvioPadrao_normal').show();
+        $('#deX_normal').hide();
+        $('#deY_normal').hide();
+    }
+
+
+})

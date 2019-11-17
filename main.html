@@ -159,8 +159,9 @@
 
                                 <button class="btn btn-primary" id="calcular">Calcular</button>
                             </div>
-
                         </div>
+
+
 
                         <div class="tab-pane fade" id="binomial" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="row">
@@ -183,10 +184,30 @@
                                         placeholder="Evento(K) | Digite os dados separados por ;"></div>
                             </div>
 
+                            <button class="btn btn-primary" id="calcular">Calcular</button>
+
                         </div>
 
 
-                        <div class="tab-pane fade" id="normal" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                        <div class="tab-pane fade" id="normal" role="tabpanel" aria-labelledby="contact-tab">
+                            <div class="row">
+                                <div class="col-5 mb-3">
+                                    <select class="form-control" id="id_selectNomal">
+                                        <option value="maiorQue_normal">Maior que</option>
+                                        <option value="entre_normal">Entre</option>
+                                        <option value="menorQue_normal">Menor que</option>
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5 mb-2"><input class="form-control" type="number" id="media_normal" placeholder="Média"></div>
+                                    <div class="col-5 mb-2"><input class="form-control" type="number" id="desvioPadrao_normal" placeholder="Desvio Padrão"></div>
+                                    <div class="col-5 mb-2"><input class="form-control" type="number" id="deX_normal" placeholder="de (X)"></div>
+                                    <div class="col-5 mb-2"><input class="form-control" type="number" id="deY_normal" placeholder="de (Y)"></div>
+                                    <div class="col-5 mb-2"><input class="form-control" type="number" id="quantidade_normal" placeholder="Quantidade"></div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" id="calcular">Calcular</button>
+                        </div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
@@ -195,9 +216,6 @@
             </div>
         </div>
     </div>
-
-
-
     <!-- Conteudo da pagina -->
     <!-- JavaScript (Opcional) -->
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
