@@ -215,7 +215,24 @@ function calcular() {
 
         } else {
             console.log("****Quantitativa Continua");
-            calculaQuantitativaContinua(dados)
+            calculaQuantitativaContinua(dados);
+            
+            calcularFr(vet);                // Calcula a Fr%                                                         
+
+            calcularFac(vet);               // Calcula o Fac                                                         
+            calcularFacPorc(vet);           // Calcula o Fac                                                         
+            moda = calcularModa(vet);       // Calcular Moda                                                         
+            mediana = calcularMediana(vet); // Calcular Mediana                                                      
+            media = calcularMedia(vet)      // Calcular Media                                                        
+
+            desvioPadrao = calcularDesvioPadrao(vet)
+
+            // Mostrar resultados
+            console.log(vet);
+            console.log("Variavel pesquisada " + variavel);
+            console.log("Média: " + media);
+            console.log("Moda: " + moda);
+            console.log("Mediana: " + elementoMediana(mediana, dados));
 
             //     //Daqui pra baixo tem que revisar
             //     moda = 0;       // Calcular Moda                                                         

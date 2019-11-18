@@ -69,14 +69,16 @@ function calculaQuantitativaContinua(dados) {
         };
     }
 
-
     gerarTabela(arrayIndices, pegarVariavel());
-    console.log(arrayIndices);
-    
-
+       
     return arrayIndices
 }
 
 function calcularFrContinua(valor,quantidadeTotal) {
     return Math.round(valor/quantidadeTotal*100);    
+}
+
+function calcularMediaContinua(vet) {
+    let teste = 1+1;
+    console.log('teste' + teste);
 }

@@ -107,6 +107,4 @@ $('#id_selectNomal').change(function () {
         $('#deX_normal').hide();
         $('#deY_normal').hide();
     }
-
-
 })
