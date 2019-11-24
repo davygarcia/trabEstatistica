@@ -20,7 +20,7 @@
 <body>
 
     <div class="row">
-        <div class="col-3">
+        <div class="col-2">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
                     aria-controls="v-pills-home" aria-selected="true">Estatística Descritiva</a>
@@ -50,15 +50,14 @@
                         </div>
 
                         <hr>
-
                         <div class="form-group">
                             <label for="variavel">Nome da Variavel</label>
-                            <input class="form-control" type="text" id="variavel" placeholder="Variavel pesquisada">
+                            <input class="form-control col-5" type="text" id="variavel" placeholder="Variavel pesquisada">
                         </div>
 
                         <div class="form-group">
                             <label for="valores">Digite os valores separados por ";"</label>
-                            <input class="form-control" type="text" id="valores">
+                            <input class="form-control col-8" type="text" id="valores">
                         </div>
                     </form>
 
@@ -74,7 +73,7 @@
                             <option value="1000">Personalizado</option>
                         </select>
 
-                        <input oninput="atualizarRange(this.value)" type="range" class="custom-range" min="1" max="4"
+                        <input oninput="atualizarRange(this.value)" type="range" class="custom-range col-5" min="1" max="4"
                             step="1" id="range">
 
                         <div class="form-group col-5">
@@ -84,7 +83,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12">
+                    <div class="col-8">
                         <table id="tabela" class="table table-condensed table-bordered table-hover">
                             <thead>
                                 <tr>
@@ -99,6 +98,11 @@
 
                             </tbody>
                         </table>
+                        <hr>
+                        <p> <h2> Resultados</h2></p>
+                        <strong><p id="moda" ></p></strong></p>
+                        <strong><p id="media" ></p></strong></p>
+                        <strong><p id="mediana" ></p></strong></p>
                     </div>
                     
                     <button class="btn btn-primary" id="calcular" onclick="calcular()">Calcular</button>
@@ -133,31 +137,30 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-6 mb-2">
+                                <div class="col-5 mb-2">
                                     <input class="form-control" type="number" id="quantidade_probabilidade"
                                         placeholder="Quantidade">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-6 mb-2">
+                                <div class="col-5 mb-2">
                                     <input class="form-control" type="number" id="ponto_minimo"
                                         placeholder="Ponto Minimo" de>
                                 </div>
-                                <div class="col-6 mb-2">
+                                <div class="col-5 mb-2">
                                     <input class="form-control" type="number" id="ponto_maximo"
                                         placeholder="Ponto Máximo">
                                 </div>
 
-                                <div class="col-6 mb-2">
+                                <div class="col-5 mb-2">
                                     <input class="form-control" type="number" id="entreX" placeholder="de (x)">
                                 </div>
 
-                                <div class="col-6 mb-2">
+                                <div class="col-5 mb-2">
                                     <input class="form-control" type="number" id="entreY" placeholder="de (y)">
                                 </div>
-
-                                <button class="btn btn-primary" id="calcularProbabilidade_Uniforme">Calcular</button>
                             </div>
+                            <button class="btn btn-primary" id="calcularProbabilidade_Uniforme">Calcular</button>
                         </div>
 
 

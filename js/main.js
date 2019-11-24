@@ -164,15 +164,15 @@ function elementoMediana(mediana, dados) {
     return elementosMediana
 }
 
-function calcularDesvioPadrao(media) {
-    console.log('Media' + media);
+// function calcularDesvioPadrao(media) {
+//     console.log('Media' + media);
 
-}
+// }
 
 /***********              Inicando função                      *************** */
 function calcular() {
     // Declaração das variaveis
-    let variavel, dados, moda, media, vet, mediana, desvioPadrao;
+    let variavel, dados, moda, media, vet, mediana, desvioPadrao, resultado_mediana;
 
     // Pegando os valores do HTML e gerando um valor 
     let valores = $('#valores').val();
@@ -197,73 +197,27 @@ function calcular() {
 
             calcularFac(vet);               // Calcula o Fac                                                         
             calcularFacPorc(vet);           // Calcula o Fac                                                         
+            calcularMediana(vet)
             moda = calcularModa(vet);       // Calcular Moda                                                         
             mediana = calcularMediana(vet); // Calcular Mediana                                                      
-            media = calcularMedia(vet)      // Calcular Media                                                        
+            media = calcularMedia(vet)      // Calcular Media 
+            resultado_mediana = elementoMediana(mediana, dados)                                                       
 
-            desvioPadrao = calcularDesvioPadrao(vet)
+            //desvioPadrao = calcularDesvioPadrao(vet)
 
             // Mostrar resultados
-            console.log(vet);
-            console.log("Variavel pesquisada " + variavel);
-            console.log("Média: " + media);
-            console.log("Moda: " + moda);
-            console.log("Mediana: " + elementoMediana(mediana, dados));
 
-            gerarTabela(vet,variavel);
+            
+            document.getElementById("moda").innerHTML = "Moda: " + moda;
+            document.getElementById("media").innerHTML = "Média: " + media;
+            document.getElementById("mediana").innerHTML = "Mediana: " + resultado_mediana;
+
+            gerarTabela(vet, variavel);
 
 
         } else {
             console.log("****Quantitativa Continua");
             calculaQuantitativaContinua(dados);
-            
-            calcularFr(vet);                // Calcula a Fr%                                                         
-
-            calcularFac(vet);               // Calcula o Fac                                                         
-            calcularFacPorc(vet);           // Calcula o Fac                                                         
-            moda = calcularModa(vet);       // Calcular Moda                                                         
-            mediana = calcularMediana(vet); // Calcular Mediana                                                      
-            media = calcularMedia(vet)      // Calcular Media                                                        
-
-            desvioPadrao = calcularDesvioPadrao(vet)
-
-            // Mostrar resultados
-            console.log(vet);
-            console.log("Variavel pesquisada " + variavel);
-            console.log("Média: " + media);
-            console.log("Moda: " + moda);
-            console.log("Mediana: " + elementoMediana(mediana, dados));
-
-            //     //Daqui pra baixo tem que revisar
-            //     moda = 0;       // Calcular Moda                                                         
-            //     let maiorFi = 0;
-            //     let fiTotal = 0;
-            //     let totalMedia = 0;
-
-            //     //Calculo da moda da continua
-            //     for (let i = 0; i < vet.length; i++) {
-            //         if (vet[i].fi > maiorFi) {
-            //             maiorFi = vet[i].fi;
-            //             moda = (vet[i].valorFinal + vet[i].valorInicial) / 2;
-            //         }
-            //         vet[i].mediaItem = (vet[i].valorFinal + vet[i].valorInicial) / 2;
-            //         totalMedia += vet[i].mediaItem * vet[i].fi;
-            //         fiTotal += vet[i].fi;
-            //     }
-
-            //     media = (totalMedia / fiTotal).toFixed(2);      // Calcular Media                                                        
-
-            //     mediana = calcularMediana(vet); // Calcular Mediana                                                      
-
-            //     // Mostrar resultados
-            //     console.log(vet);
-            //     console.log("Variavel pesquisada " + variavel);
-            //     console.log("Média: " + media);
-            //     console.log("Moda: " + moda);
-            //     console.log("Posição da mediana esta na posição " + mediana);
-            //     console.log("Mediana: " + elementoMediana(mediana, dados));
-
-            // }
         }
 
     }
@@ -287,12 +241,12 @@ function calcular() {
         console.log("Média: Qualitativa não tem media");
         console.log("Posição da mediana esta na posição " + mediana);
         console.log("Mediana: " + elementoMediana(mediana, dados));
-        gerarTabela(vet,variavel);
+        gerarTabela(vet, variavel);
     }
 
 }
 
-function gerarTabela(linhas,nomeVariavel) {
+function gerarTabela(linhas, nomeVariavel) {
     let nomeColuna = nomeVariavel || "#";
     $("#nomeVariavelTh").html(nomeColuna);
 
@@ -304,6 +258,7 @@ function gerarTabela(linhas,nomeVariavel) {
         let indice = item.indice;
 
         tableContent += "<tr>"
+
             + "<td>" + indice + "</td>"
             + "<td>" + item.fi + "</td>"
             + "<td>" + item.fr + "%</td>"

@@ -42,43 +42,99 @@ function calculaQuantitativaContinua(dados) {
         let valorFinal;
         let fi;
         let fr;
+        let classeContinua = 1;
         if (i == 0) {
             valorInicial = menorValor;
             valorFinal = menorValor + intervaloCalculo;
         } else {
             valorInicial = arrayIndices[i - 1].valorFinal;
-            valorFinal = arrayIndices[i - 1].valorFinal + intervaloCalculo;   
+            valorFinal = arrayIndices[i - 1].valorFinal + intervaloCalculo;
         }
 
         fi = dados.filter((value) => {
             return value >= valorInicial && value < valorFinal;
         }).length;
 
+        classeContinua += i
         facContinua += fi;
-        fr = calcularFrContinua(fi,dados.length);
+        fr = calcularFrContinua(fi, dados.length);
         facContinuaPorcent += fr;
         arrayIndices[i] = {
             valorInicial: valorInicial,
             valorFinal: valorFinal,
-            indice: valorInicial +" |--- " + valorFinal,
-            fi:fi,
-            fr:fr,
-            fac:facContinua,
-            facPorc: facContinuaPorcent
+            indice: valorInicial + " |--- " + valorFinal,
+            fi: fi,
+            fr: fr,
+            fac: facContinua,
+            facPorc: facContinuaPorcent,
+            classeContinua: classeContinua
 
         };
     }
 
     gerarTabela(arrayIndices, pegarVariavel());
-       
+
+
+    calcularMediaContinua(arrayIndices)
+    calcularModaContinua(arrayIndices)
+    calcularMedianaContinua(arrayIndices)
+
+
     return arrayIndices
 }
 
-function calcularFrContinua(valor,quantidadeTotal) {
-    return Math.round(valor/quantidadeTotal*100);    
+function calcularFrContinua(valor, quantidadeTotal) {
+    return Math.round(valor / quantidadeTotal * 100);
 }
 
 function calcularMediaContinua(vet) {
-    let teste = 1+1;
-    console.log('teste' + teste);
+
+    let somaMedia = 0;
+    let totalFi = 0;
+    let media = 0;
+    for (let i = 0; i < vet.length; i++) {
+        somaMedia += ((vet[i].valorFinal + vet[i].valorInicial) / 2) * vet[i].fi;
+        totalFi += vet[i].fi
+    }
+
+    media = (somaMedia / totalFi).toFixed(2)
+
+    return media
 }
+
+function calcularModaContinua(vet) {
+    let modaInicial = vet[0].fi
+    let valorInicial, valorFinal, moda;
+
+    for (let i = 0; i < vet.length; i++) {
+        if (modaInicial < vet[i].fi) {
+            modaInicial = vet[i].fi
+            valorInicial = vet[i].valorInicial
+            valorFinal = vet[i].valorFinal
+        }
+    }
+
+    moda = ((valorInicial + valorFinal) / 2).toFixed(2)
+
+    return moda
+}
+
+function calcularMedianaContinua(vet) {
+    let totalFi = vet[vet.length - 1].fac;
+    let posicao = totalFi / 2;
+    let classe, classeAnterior;
+    console.log(vet);
+    console.log('Total Fi ' + totalFi);
+    console.log('Valor da posição ' + posicao);
+
+    for (let i = 0; i < vet.length; i++) {
+        if (posicao <= vet[i].fac && posicao > vet[i + 1].fac) {
+            console.log(vet[i]);
+
+        }
+    }
+
+}
+
+
+//  
